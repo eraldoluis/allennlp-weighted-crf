@@ -4,11 +4,13 @@ import sys
 
 from allennlp.commands import main
 
-config_file = "training_config/ner.jsonnet"
+config_file = "training_config/ner_new.json"
 
 # Use overrides to train on CPU.
 overrides = json.dumps(
     {
+        "train_data_path": "~/lia/src/allennlpdev/allennlp-models/test_fixtures/tagging/conll2003.txt",
+        "validation_data_path": "~/lia/src/allennlpdev/allennlp-models/test_fixtures/tagging/conll2003.txt",
         "trainer": {"cuda_device": -1},
         "model": {"verbose_metrics": True}
     })
