@@ -61,7 +61,6 @@
   "trainer": {
     "optimizer": "adam",
     "num_epochs": 5,
-    "cuda_device": -1,
-    "validation_metric": "+f1-measure-overall"
+    "cuda_device": -1
   }
 }

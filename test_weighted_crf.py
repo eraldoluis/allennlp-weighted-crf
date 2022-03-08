@@ -11,7 +11,10 @@ overrides = json.dumps(
     {
         "train_data_path": "~/lia/src/allennlpdev/allennlp-models/test_fixtures/tagging/conll2003.txt",
         "validation_data_path": "~/lia/src/allennlpdev/allennlp-models/test_fixtures/tagging/conll2003.txt",
-        "trainer": {"cuda_device": -1},
+        "trainer": {
+            # "cuda_device": -1, 
+            "validation_metric": "+f1-measure-overall"
+        },
         "model": {"verbose_metrics": True}
     })
 
