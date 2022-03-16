@@ -7,19 +7,24 @@ from dateutil import tz
 
 from allennlp.commands import main
 
-config_file = "./training_config/conll2003_simple_ner.json"
+config_file = "./training_config/conll2003_simple_ner.jsonnet"
 
 # Use overrides to train on CPU.
-overrides = json.dumps(
-    {
-        # "train_data_path": "../allennlp-models/test_fixtures/tagging/conll2003.txt",
-        # "validation_data_path": "../allennlp-models/test_fixtures/tagging/conll2003.txt",
-        "train_data_path": "../data/conll2003_simple/eng_simple.testa",
-        "validation_data_path": "../data/conll2003_simple/eng_simple.testa",
-        # "trainer.cuda_device": -1, 
-        # "trainer.validation_metric": "+f1-measure-overall", 
-        # "model.verbose_metrics": True
-    })
+overrides = json.dumps({
+    "train_data_path": "/data/eraldo/allennlp/data/conll2003_simple/eng_simple.train",
+    "validation_data_path": "/data/eraldo/allennlp/data/conll2003_simple/eng_simple.testa",
+    "test_data_path": "/data/eraldo/allennlp/data/conll2003_simple/eng_simple.testb",
+    # "trainer.cuda_device": 0, 
+    "trainer.num_epochs": 25,
+    "model.label_weights": {"MISC": 1.05}, 
+    "trainer.validation_metric": "+macro-fscore", 
+    # "trainer.patience": 3, 
+    "data_loader.batch_size": 1024, 
+    # "model.verbose_metrics": True, 
+    "random_seed": None, 
+    "numpy_seed": None, 
+    "pytorch_seed": None
+})
 
 datetime_fmt = '%Y_%m_%d-%H_%M_%S_%f_%z'
 serialization_dir = f'train_out/{datetime.now(tz.tzlocal()).strftime(datetime_fmt)}'
