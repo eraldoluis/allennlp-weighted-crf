@@ -53,14 +53,34 @@
     },
     "regularizer": {
       "regexes": [
-        ["transitions$", {"type": "l2", "alpha": 0.01}]
+        [
+          "transitions$",
+          {
+            "type": "l2",
+            "alpha": 0.01
+          }
+        ]
       ]
     }
   },
-  "data_loader": {"batch_size": 32},
+  "data_loader": {
+    "batch_size": 32
+  },
   "trainer": {
     "optimizer": "adam",
     "num_epochs": 5,
-    "cuda_device": -1
+    // "cuda_device": -1, 
+    "callbacks": [
+      {
+        "type": "wandb",
+        // "project": "WeightedCRF",
+        // "entity": "eraldoluis",
+        // "watch_model": false,
+        // "summary_interval": 1,
+        // "should_log_parameter_statistics": false,
+        // "should_log_learning_rate": false, 
+        // "tags": ["weight_misc"]
+      }
+    ]
   }
 }
