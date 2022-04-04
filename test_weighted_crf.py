@@ -16,14 +16,16 @@ overrides = json.dumps({
     "test_data_path": "/data/eraldo/allennlp/data/conll2003_simple/eng_simple.testb",
     # "trainer.cuda_device": 0, 
     "trainer.num_epochs": 25,
-    "model.label_weights": {"MISC": 1.05}, 
+    "model.label_weights": {"MISC": 2}, 
+    # "model.weight_strategy": "emission_transition", 
+    "model.weight_strategy": "lannoy", 
     "trainer.validation_metric": "+macro-fscore", 
     # "trainer.patience": 3, 
     "data_loader.batch_size": 1024, 
     # "model.verbose_metrics": True, 
     "random_seed": None, 
     "numpy_seed": None, 
-    "pytorch_seed": None
+    "pytorch_seed": None, 
 })
 
 datetime_fmt = '%Y_%m_%d-%H_%M_%S_%f_%z'
