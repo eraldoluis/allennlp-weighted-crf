@@ -14,6 +14,6 @@ do
     for gpu in $gpus
     do
         echo "Run $i in GPU $gpu"
-        CUDA_VISIBLE_DEVICES=$gpu $command &
+        CUDA_VISIBLE_DEVICES=$gpu nohup $command &
     done
 done
