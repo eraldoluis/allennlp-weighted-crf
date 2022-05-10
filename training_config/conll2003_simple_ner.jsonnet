@@ -1,7 +1,7 @@
 {
-  "train_data_path": "../data/conll2003_simple/eng_simple.train",
-  "validation_data_path": "../data/conll2003_simple/eng_simple.testa",
-  "test_data_path": "../data/conll2003_simple/eng_simple.testb",
+  // "train_data_path": "../data/conll2003_simple/eng_simple.train",
+  // "validation_data_path": "../data/conll2003_simple/eng_simple.testa",
+  // "test_data_path": "../data/conll2003_simple/eng_simple.testb",
   "evaluate_on_test": true,
   "dataset_reader": {
     "type": "conll2003",
@@ -57,20 +57,23 @@
       ]
     }
   },
-  "data_loader": {"batch_size": 32},
+  "data_loader": {
+    "batch_size": 32
+  },
   "trainer": {
     "optimizer": "adam",
     "num_epochs": 5,
-    "cuda_device": -1, 
+    // "cuda_device": -1, 
     "callbacks": [
       {
         "type": "wandb",
-        "project": "WeightedCRF",
-        "entity": "eraldoluis",
-        "watch_model": false,
-        "summary_interval": 1,
-        "should_log_parameter_statistics": false,
-        "should_log_learning_rate": false
+        // "project": "WeightedCRF",
+        // "entity": "eraldoluis",
+        // "watch_model": false,
+        // "summary_interval": 1,
+        // "should_log_parameter_statistics": false,
+        // "should_log_learning_rate": false, 
+        // "tags": ["weight_misc"]
       }
     ]
   }

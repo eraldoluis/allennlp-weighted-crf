@@ -142,4 +142,5 @@ train_out/
 
 .venv-allen/
 
-wandb/
+/wandb
+nohup.out
